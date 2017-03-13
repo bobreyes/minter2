@@ -1,0 +1,57 @@
+<html>
+<title>My Grades Demo</title>
+
+<body>
+
+  <textarea id="InputGrades"></textarea>
+
+  <p id="demo">Grade Will be displayed Here</p>
+
+  <button type="button" onclick="myGradeFunction()">Try it</button>
+
+</body>
+
+<script>
+  function CheckGrade(InputGrade) {
+
+    var TestGrade = parseInt(InputGrade);
+
+    if (TestGrade == NaN) {
+      document.getElementById("demo").innerHTML = "Incorrect Value";
+    } else {
+
+      var ConvertedGrade = 0;
+
+      if (TestGrade <= 100) {
+        if (97 <= TestGrade && TestGrade <= 100) {
+          var ConvertedGrade = 4.0;
+        } else if (93 <= TestGrade && TestGrade <= 96) {
+          var ConvertedGrade = 3.5;
+        } else if (89 <= TestGrade && TestGrade <= 92) {
+          var ConvertedGrade = 3.0;
+        } else if (85 <= TestGrade && TestGrade <= 88) {
+          var ConvertedGrade = 2.5;
+        } else if (80 <= TestGrade && TestGrade <= 84) {
+          var ConvertedGrade = 2.0;
+        } else if (75 <= TestGrade && TestGrade <= 79) {
+          var ConvertedGrade = 1.5;
+        } else if (70 <= TestGrade && TestGrade <= 74) {
+          var ConvertedGrade = 1.0;
+        } else if (TestGrade < 70) {
+          var ConvertedGrade = 0;
+        }
+
+        document.getElementById("demo").innerHTML = "Converted Grade is: " + ConvertedGrade;
+      } else {
+        document.getElementById("demo").innerHTML = "Value is out of bound";
+      }
+    }
+  }
+
+  function myGradeFunction() {
+    var InputGrade = document.getElementById("InputGrades").value;
+    CheckGrade(InputGrade);
+  }
+
+</script>
+</html>
